@@ -6,7 +6,9 @@ import data from "./data.json";
 import styles from "./app.module.css";
 
 const App = () => {
-  const { onSubmitHandler, changeHandler, value, fetchData } = useData([]);
+  const { onSubmitHandler, changeHandler, value, data, fetchData } = useData(
+    []
+  );
 
   useEffect(() => {
     fetchData();
