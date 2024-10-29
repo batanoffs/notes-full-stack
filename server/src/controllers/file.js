@@ -1,28 +1,29 @@
 const fs = require("fs").promises;
 
-async function readFile(filePath) {
+async function readNotes() {
   try {
-    const data = await fs.readFile(filePath);
+    const data = await fs.readFile("data.json");
     console.log(data.toString());
+    return data;
   } catch (error) {
     console.error(`Got an error trying to read the file: ${error.message}`);
   }
 }
 
-async function write(name, quantity, price) {
+async function addNotes(string) {
   try {
-    const csvLine = `\n${name},${quantity},${price}`;
-    await fs.writeFile("groceries.csv", csvLine, { flag: "a" });
+    await fs.writeFile("data.json", notes.push(string));
   } catch (error) {
     console.error(`Got an error trying to write to a file: ${error.message}`);
   }
 }
 
-async function deleteFile(filePath) {
+async function deleteNote() {
   try {
-    await fs.unlink(filePath);
     console.log(`Deleted ${filePath}`);
   } catch (error) {
     console.error(`Got an error trying to delete the file: ${error.message}`);
   }
 }
+
+module.exports = { readNotes, addNotes, del: deleteNote };

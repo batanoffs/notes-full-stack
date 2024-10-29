@@ -2,12 +2,16 @@ const express = require("express");
 const cors = require("cors");
 const app = express();
 
+const { addNotes, del, readNotes } = require("./src/controllers/file");
+
 app.use(cors());
 
 app.get("/", (req, res) => {
   try {
-    //call to retreive array from file data.json
-    res.status(200).json(); //return the array
+    const notes = readNotes();
+    console.log(notes);
+
+    // res.status(200).json(); //return the array
   } catch (error) {
     res.status(500).json({ message: "Internal server errror", error });
   }
