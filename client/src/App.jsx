@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 
 import { useData } from "./hooks/useData";
-import data from "./data.json";
 
 import styles from "./app.module.css";
 
