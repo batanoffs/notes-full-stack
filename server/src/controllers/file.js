@@ -2,7 +2,14 @@ const fs = require("fs").promises;
 
 async function readNotes() {
   try {
-    const data = await fs.readFile("data.json");
+    const data = await fs.readFile("./data.json", "utf8", (err, data) => {
+      if (err) {
+        console.error(err);
+        return;
+      }
+      console.log(data);
+    });
+
     console.log(data.toString());
     return data;
   } catch (error) {

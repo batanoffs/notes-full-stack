@@ -18,6 +18,7 @@ export const useData = (initialState) => {
 
     try {
       const response = axios.post("http://localhost:3000/add", { note });
+      console.log(response);
     } catch (error) {
       console.log(error);
     }
@@ -35,7 +36,7 @@ export const useData = (initialState) => {
   return {
     fetchData,
     value,
-    data,
+    notes,
     changeHandler,
     onSubmitHandler,
   };
