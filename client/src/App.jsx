@@ -4,7 +4,7 @@ import { useData } from "./hooks/useData";
 import styles from "./app.module.css";
 
 const App = () => {
-  const { onSubmitHandler, changeHandler, value, data, fetchData } = useData(
+  const { onSubmitHandler, changeHandler, value, notes, fetchData } = useData(
     []
   );
 
@@ -26,7 +26,7 @@ const App = () => {
       </form>
 
       <ul>
-        {data.notes.map((note, index) => (
+        {notes?.map((note, index) => (
           <li key={index}>{note}</li>
         ))}
       </ul>
